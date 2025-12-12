@@ -1,4 +1,4 @@
-baseURL = 'https://dspenik.github.io/freshdent/'
+baseURL = 'https://fresh-dent.cz/'
 languageCode = 'cs'
 title = 'FreshDent - Stomatologická ordinace'
 theme = 'freshdent'
