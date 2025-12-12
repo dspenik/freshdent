@@ -1,0 +1,44 @@
+baseURL = 'https://dspenik.github.io/freshdent/'
+languageCode = 'cs'
+title = 'FreshDent - Stomatologická ordinace'
+theme = 'freshdent'
+
+[params]
+  description = 'Stomatologická ordinace MDDr. Michal Špenik'
+  phone = '797 828 777'
+  email = 'michal.spenik@gmail.com'
+  address = 'Havlíkova 49/1, Horní Jiřetín'
+
+  # Alert banner
+  alertEnabled = true
+  alertMessage = 'Pro enormní zájem bohužel máme stop stav. Poslední volná místa jsou pouze pro obyvatele Horního Jiřetina a Černic.'
+
+  # Popup okno (dovolená, zastup, atd.)
+  [params.popup]
+    enabled = false
+    title = 'Upozornění'
+    message = '''
+Ve dnech 23.12. - 2.1. je ordinace **uzavřena** z důvodu čerpání dovolené.
+
+V akutních případech kontaktujte pohotovost.
+'''
+
+[menu]
+  [[menu.main]]
+    name = 'O nás'
+    url = '#o-nas'
+    weight = 1
+  [[menu.main]]
+    name = 'Ceník'
+    url = '#cennik'
+    weight = 2
+  [[menu.main]]
+    name = 'Dotace'
+    url = 'publicita-web.pdf'
+    weight = 3
+    [menu.main.params]
+      external = true
+  [[menu.main]]
+    name = 'Kontakt'
+    url = '#kontakt'
+    weight = 4

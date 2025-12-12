@@ -1,0 +1,53 @@
+# macOS
+.DS_Store
+
+# Hugo
+/public/
+/resources/_gen/
+/.hugo_build.lock
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Claude Code
+.claude/
+
+# Documentation (auto-generated)
+RESPONSIVE_DESIGN_*.md
+IMPLEMENTATION_COMPLETE.md
+BEFORE_AFTER_COMPARISON.md
+*_COMPARISON.md
+*_COMPLETE.md
+
+# Node
+node_modules/
+package-lock.json
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Terraform
+*.tfstate
+*.tfstate.*
+*.tfvars
+.terraform/
+.terraform.lock.hcl
+
+# Kubernetes secrets
+*.key
+*.pem
+*.crt
+kubeconfig
+*-secret.yaml
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+*.cache

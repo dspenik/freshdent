@@ -1,0 +1,8 @@
+name = "FreshDent"
+license = "MIT"
+licenselink = "https://github.com/dspenik/freshdent/blob/main/LICENSE"
+description = "Theme for FreshDent dental clinic website"
+homepage = "https://dspenik.github.io/freshdent/"
+
+[author]
+  name = "Dmitrij Spenik"

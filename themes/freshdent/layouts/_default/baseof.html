@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="{{ "images/favicon.ico" | relURL }}">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="{{ .Site.Params.description }}">
+  <link rel="apple-touch-icon" href="{{ "images/favicon.ico" | relURL }}">
+  <title>{{ .Site.Title }}</title>
+  <link href="{{ "css/style.css" | relURL }}" rel="stylesheet">
+</head>
+<body>
+  {{- if .Site.Params.popup.enabled }}
+  <div class="popup is-visible" id="popup">
+    <div class="popup-container">
+      <a href="#" class="popup-close" id="popup-close"></a>
+      <h2 class="font-bold text-2xl mb-4">{{ .Site.Params.popup.title }}</h2>
+      <div class="text-base">
+        {{ .Site.Params.popup.message | markdownify }}
+      </div>
+      <button class="btn btn-ghost mt-6" onclick="document.getElementById('popup').classList.remove('is-visible')">Rozumím</button>
+    </div>
+  </div>
+  <script>
+    document.getElementById('popup-close').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('popup').classList.remove('is-visible');
+    });
+  </script>
+  {{- end }}
+
+  <div id="root">
+    <div class="Page w-full">
+      {{ block "main" . }}{{ end }}
+    </div>
+  </div>
+</body>
+</html>

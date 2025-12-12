@@ -1,0 +1,258 @@
+{{ define "main" }}
+<!-- Header -->
+<header class="Menu">
+  <nav>
+    <div class="navbar shadow-lg bg-white text-black">
+      <!-- Mobile hamburger -->
+      <div class="mobile-menu-btn sm:hidden" onclick="document.getElementById('mobile-nav').classList.toggle('is-open')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </div>
+      <div class="hidden sm:px-2 sm:mx-2 sm:navbar-start sm:flex">
+        <div class="flex items-center mx-4">
+          <img class="w-4 h-4 mx-2" src="{{ "images/phone-alt-solid.9a8c462f.svg" | relURL }}" alt="telefon">
+          <span class="text-base sm:text-sm">{{ .Site.Params.phone }}</span>
+        </div>
+        <div class="flex items-center mx-4">
+          <img class="w-4 h-4 mx-2" src="{{ "images/map-marker-alt-solid.290a1edc.svg" | relURL }}" alt="adresa">
+          <span class="text-base">{{ .Site.Params.address }}</span>
+        </div>
+      </div>
+      <div class="place-items-center m-0-auto sm:flex sm:navbar-center">
+        <img class="logo-size max-h-16" src="{{ "images/fresh_dent_logo_very_wide_png.16c8eb97.png" | relURL }}" alt="FreshDent">
+      </div>
+      <div class="hidden sm:flex sm:px-2 sm:mx-4 sm:navbar-end">
+        <div class="sm:items-stretch">
+          {{ range .Site.Menus.main }}
+          <a class="btn btn-ghost btn-sm rounded-btn mx-8 md:mx-4" href="{{ if .Params.external }}{{ .URL | relURL }}{{ else }}{{ .URL }}{{ end }}"{{ if .Params.external }} target="_blank"{{ end }}>{{ .Name }}</a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-nav" class="mobile-nav">
+      <div class="flex items-center py-2">
+        <img class="w-4 h-4 mx-2" src="{{ "images/phone-alt-solid.9a8c462f.svg" | relURL }}" alt="telefon">
+        <a href="tel:{{ .Site.Params.phone }}" class="text-base">{{ .Site.Params.phone }}</a>
+      </div>
+      <div class="flex items-center py-2">
+        <img class="w-4 h-4 mx-2" src="{{ "images/map-marker-alt-solid.290a1edc.svg" | relURL }}" alt="adresa">
+        <span class="text-sm">{{ .Site.Params.address }}</span>
+      </div>
+      <div class="flex flex-col py-2 border-t mt-2">
+        {{ range .Site.Menus.main }}
+        <a class="py-2 text-base font-medium" href="{{ if .Params.external }}{{ .URL | relURL }}{{ else }}{{ .URL }}{{ end }}"{{ if .Params.external }} target="_blank"{{ else }} onclick="document.getElementById('mobile-nav').classList.remove('is-open')"{{ end }}>{{ .Name }}</a>
+        {{ end }}
+      </div>
+    </div>
+  </nav>
+  {{ if .Site.Params.alertEnabled }}
+  <div class="text-sm text-center text-blue-600 bg-blue-200 border border-blue-400 p-4 rounded-sm sm:text-base" role="alert">
+    {{ .Site.Params.alertMessage }}
+  </div>
+  {{ end }}
+</header>
+
+<!-- Hero Section -->
+<section class="w-full hero-mob text-black sm:hero">
+  <div class="flex w-full h-95vh sm:h-600">
+    <div class="bg-white px-2 flex items-center text-center sm:px-8 sm:px-12 sm:w-1/2 morphism-hero">
+      <div>
+        <p class="font-bold text-2xl sm:text-5xl">Stomatologická ordinace</p>
+        <br>
+        <p class="font-bold text-xl sm:text-3xl">MDDr. Michal Špenik</p>
+        <p class="font-normal text-lg sm:text-base">sestra DiS Andrea Špeniková</p>
+        <br>
+        <p class="font-medium text-xs sm:text-base">Vítejte na stránkách naší zubní ordinace. Čeká na vás rodinná atmosféra, nadstandardní péče i nejmodernější technologie na trhu. Máme vysoké cíle a i díky nejnovějším postupům v oblasti zubního lékařství garantujeme nejšetrnější a bezpečné ošetření vašich zubů.</p>
+      </div>
+    </div>
+    <span class="hidden sm:flex sm:block sm:bg-white sm:bg-opacity-80 sm:w-1/2 sm:morphism-hero" style="clip-path: polygon(0px 0px, 0% 100%, 10% 100%);"></span>
+  </div>
+</section>
+
+<!-- Služby Section -->
+<section class="bg-yellow-300 w-full text-black">
+  <div class="max-w-6xl mx-auto px-4 text-center justify-items-center sm:px-6 lg:px-4 py-12">
+    <div class="w-full text-center pb-8">
+      <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-gray-900 pb-2">Naše služby</h1>
+    </div>
+    <div class="w-full flex flex-col sm:grid sm:grid-cols-2 sm:gap-6">
+      <!-- Prevence -->
+      <div class="service-info-bg my-6 p-6 flex flex-1 flex-col-reverse items-center sm:flex-row sm:my-0">
+        <div class="flex mx-4 my-4 px-8 max-width-100 sm:my-0">
+          <img class="object-center h-auto object-scale-down ms-150px" src="{{ "images/icon03.0263e031.png" | relURL }}" alt="">
+        </div>
+        <div class="flex flex-col px-4 space-y-6 mb-4 items-center sm:items-stretch">
+          <p class="flex items-end text-center text-xl font-bold h-1/4">Prevence</p>
+          <p class="font-normal text-base mx-0 text-justify">Pravidelné preventivní prohlídky každých šest měsíců jsou nezbytné pro včasné odhalení chorob nejen zubů, ale i dásní a sliznice dutiny ústní. Pokud se kaz ošetří jako malý, pak zákrok nemusí být bolestivý a zároveň se minimalizují komplikace v budoucnu. V pravidelných odstupech se opakují i RTG vyšetření.</p>
+        </div>
+      </div>
+      <!-- Konzervační ošetření -->
+      <div class="service-info-bg my-6 p-6 flex flex-1 flex-col-reverse items-center sm:flex-row sm:my-0">
+        <div class="flex mx-4 my-4 px-8 max-width-100 sm:my-0">
+          <img class="object-center h-auto object-scale-down ms-150px" src="{{ "images/icon01.b795e24b.png" | relURL }}" alt="">
+        </div>
+        <div class="flex flex-col px-4 space-y-6 mb-4 items-center sm:items-stretch">
+          <p class="flex items-end text-center text-xl font-bold h-1/4">Konzervační ošetření</p>
+          <p class="font-normal text-base mx-0 text-justify">Toto ošetření slouží k odstranění zubního kazu a obnově mastikační (kousací) a estetické funkce zubu. Plak se vytváří na všech zubech u všech lidí, ale při nedostatečné hygieně, když není kvalitně odstraněn, způsobuje odvápnění, změknutí a probourání skloviny.</p>
+        </div>
+      </div>
+      <!-- Dentální hygiena -->
+      <div class="service-info-bg my-6 p-6 flex flex-1 flex-col-reverse items-center sm:flex-row sm:my-0">
+        <div class="flex mx-4 my-4 px-8 max-width-100 sm:my-0">
+          <img class="object-center h-auto object-scale-down ms-150px" src="{{ "images/icon02.1027ee11.png" | relURL }}" alt="">
+        </div>
+        <div class="flex flex-col px-4 space-y-6 mb-4 items-center sm:items-stretch">
+          <p class="flex items-end text-center text-xl font-bold h-1/4">Dentální hygiena</p>
+          <p class="font-normal text-base mx-0 text-justify">Součástí prevence je i dentální hygiena. Návštěva sice není povinná, ale velmi doporučena. V ideálním případě by návštěva zubní hygienistky měla předcházet preventivním prohlídkám.</p>
+        </div>
+      </div>
+      <!-- Ostatní -->
+      <div class="service-info-bg my-6 p-6 flex flex-1 flex-col-reverse items-center sm:flex-row sm:my-0">
+        <div class="flex mx-4 my-4 px-8 max-width-100 sm:my-0">
+          <img class="object-center h-auto object-scale-down ms-150px" src="{{ "images/icon04.c47432be.png" | relURL }}" alt="">
+        </div>
+        <div class="flex flex-col px-4 space-y-6 mb-4 items-center sm:items-stretch">
+          <p class="flex items-end text-center text-xl font-bold h-1/4">Ostatní</p>
+          <p class="font-normal text-base mx-0 text-justify">Součástí naší ordinace je i CAD/CAM technologie. Princip této technologie je založen na počítačové 3D modelaci protetického výrobku a následném vyfrézování z keramického bloku.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ceník Section -->
+<section id="cennik" class="bg-white w-full grid justify-items-center my-4 text-black">
+  <div class="w-full text-center pb-8">
+    <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-gray-900 pb-2">Ceník</h1>
+  </div>
+  <div class="max-w-6xl mx-auto px-4 text-center justify-items-center sm:px-6 lg:px-4 pb-12">
+    <p class="text-black font-base text-base sm:text-base">Pojišťovny v ČR hradí pouze malou část nákladů kvalitní stomatologie, a navíc jen při použití levných (zastaralých) materiálů a postupů – takové však naše ordinace neposkytuje.<br>Většina typů ošetření, která vedou k dlouhodobému zachování či kvalitní náhradě Vašeho chrupu bohužel v současné době hrazeny pojišťovnou nejsou nebo je pojišťovny platí jen z části a pacient si musí tato poskytnutá ošetření doplatit.</p>
+  </div>
+  <div class="flex flex-1 flex-col px-4 sm:flex-row sm:px-0">
+    <div class="">
+      <div class="max-w-prose">
+        <div class="overflow-x-auto">
+          <p class="font-bold text-2xl my-4 text-center sm:text-left">Konzervační ošetření</p>
+          <table class="table table-zebra w-full items-center text-base">
+            <tbody>
+              <tr><td>Ošetření zubního kazu – malá výplň</td><td>2000 Kč</td></tr>
+              <tr><td>Ošetření zubního kazu – střední výplň</td><td>2500 Kč</td></tr>
+              <tr><td>Ošetření zubního kazu – velká výplň</td><td>3000 Kč</td></tr>
+              <tr><td>Speciální podložka pod plombu</td><td>500 Kč</td></tr>
+              <tr><td>FRC čep + dostavba zubu (sklovláknový kompozitní kořenový čep, slouží ke zpevnění zubu)</td><td>3000 Kč</td></tr>
+              <tr><td>Provizorní plomba odolnější</td><td>300 Kč</td></tr>
+              <tr><td>Komplexní strojové ošetření kořenových kanálků</td><td>1500 Kč za kanálek</td></tr>
+              <tr><td>Léčebná vložka</td><td>500 Kč</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="max-w-prose">
+        <div class="overflow-x-auto">
+          <p class="font-bold text-2xl my-4 text-center sm:text-left">Protézy</p>
+          <table class="table table-zebra w-full">
+            <tbody>
+              <tr><td>Oprava vypadlého zubu z protézy</td><td>500 Kč</td></tr>
+              <tr><td>Oprava na modelu – prasklá náhrada</td><td>600 Kč</td></tr>
+              <tr><td>Oprava retenčních prvků</td><td>800 Kč</td></tr>
+              <tr><td>Oprava – rozšíření báze/doplnění zubů do protézy do 2 zubů</td><td>1500 Kč</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="max-w-prose">
+        <div class="overflow-x-auto">
+          <p class="font-bold text-2xl my-4 text-center sm:text-left">Ostatní</p>
+          <table class="table table-zebra w-full">
+            <tbody>
+              <tr><td>Dlaha bruxismus</td><td>2000 Kč</td></tr>
+              <tr><td>Sutura (šití)</td><td>500 Kč</td></tr>
+              <tr><td>Neomluvená absence</td><td>1000 Kč</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="sm:pl-8 sm:flex sm:flex-col sm:justify-between">
+      <div class="max-w-prose">
+        <div class="overflow-x-auto">
+          <p class="font-bold text-2xl my-4 text-center sm:text-left">Korunkové náhrady</p>
+          <table class="table table-zebra w-full">
+            <tbody>
+              <tr><td>Korunka keramická anatomická CAD/CAM (Zirkon)</td><td>6000 Kč</td></tr>
+              <tr><td>Můstek keramický anatomický CAD/CAM (Zirkon)</td><td>18000 Kč</td></tr>
+              <tr><td>Člen v můstku</td><td>6000 Kč</td></tr>
+              <tr><td>Fixní nacementovní korunky</td><td>500 Kč</td></tr>
+              <tr><td>Kořenová Inlay jednokořenová</td><td>2000 Kč</td></tr>
+              <tr><td>Kořenová Inlay dvoukořenová</td><td>3000 Kč</td></tr>
+              <tr><td>Kořenová Inlay tříkořenová</td><td>4000 Kč</td></tr>
+              <tr><td>Imediátní náhrada (poextrakční, dle počtu zubů)</td><td>8000 Kč</td></tr>
+              <tr><td>Částečné snímatelná náhrada ZÁKLADNÍ (dle počtu zubů a materiálu)</td><td>zdravotní pojišťovnou</td></tr>
+              <tr><td>Částečné snímatelná náhrada Deflex (dle počtu zubů a materiálu)</td><td>4500 Kč</td></tr>
+              <tr><td>Celková náhrada horní ZÁKLADNÍ</td><td>hrazeno zdravotní pojišťovnou</td></tr>
+              <tr><td>Celková náhrada dolní ZÁKLADNÍ</td><td>hrazeno zdravotní pojišťovnou</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-6xl mx-auto px-4 text-center justify-items-center sm:px-6 lg:px-4 py-12">
+    <p class="text-black font-base text-base sm:text-base">
+      Níže uvedené ceny vycházejí ze standardních časů (tzv. minutáže ošetření). Každý pacient a jeho zdravotní stav je vždy individuální. V případě komplikací a větší časové náročnosti ošetření může být plánovaná cena finálně navýšena poměrnou částí minutové kalkulace.
+      <br><br>
+      <b>Pacient je povinen dodržovat sjednané termíny jednotlivých výkonů v souladu s léčebným plánem, absenci pacienta lze v předstihu omluvit a sjednat náhradní termín. Omluva musí být v takovém případě provedena nejpozději 24 hodin předem.</b>
+    </p>
+  </div>
+</section>
+
+<!-- Kontakt Section -->
+<section id="kontakt" class="flex flex-col mt-12 sm:flex-row text-black">
+  <div class="sm:w-1/2 bg-modra text-white justify-center">
+    <div class="text-center py-12 px-6 sm:p-24">
+      <p class="font-bold text-2xl">Kde nás najdete</p>
+      <br>
+      <p class="font-bold text-lg">FreshDent<br>Stomatologická ordinace<br>MDDr. Michal Špenik</p>
+      <p class="text-base">sestra DiS Andrea Špeniková</p>
+      <br>
+      <div class="flex flex-col justify-center">
+        <p class="text-base font-bold">Ordinační hodiny</p>
+        <table class="self-center spacing-table">
+          <tbody>
+            <tr><td>pondělí</td><td>&nbsp;</td><td>8:30-15:00</td></tr>
+            <tr><td>úterý</td><td>&nbsp;</td><td>8:30-15:00</td></tr>
+            <tr><td>středa</td><td>&nbsp;</td><td>8:30-15:00</td></tr>
+            <tr><td>čtvrtek</td><td>&nbsp;</td><td>8:30-15:00</td></tr>
+            <tr><td>pátek</td><td>&nbsp;</td><td>8:30-12:00</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <div class="flex flex-col justify-center items-center mx-4">
+        <div class="flex my-2 flex-col items-center sm:flex-row">
+          <img class="w-6 h-6 mx-2" src="{{ "images/map-marker-alt-solid.53d2b771.svg" | relURL }}" alt="adresa">
+          <span class="text-base">{{ .Site.Params.address }}</span>
+        </div>
+        <div class="flex my-2 flex-col items-center sm:flex-row">
+          <img class="w-6 h-6 mx-2" src="{{ "images/envelope-solid.408814d9.svg" | relURL }}" alt="mail">
+          <span class="text-base">{{ .Site.Params.email }}</span>
+        </div>
+        <div class="flex my-2 flex-col items-center sm:flex-row">
+          <img class="w-6 h-6 mx-2" src="{{ "images/phone-alt-solid.808fe16d.svg" | relURL }}" alt="telefon">
+          <span class="text-base sm:text-sm">{{ .Site.Params.phone }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sm:w-1/2 bg-red-500">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10136.20616283473!2d13.5516315!3d50.5704059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x67404e9ddec13e8f!2sFresh%20Dent!5e0!3m2!1scs!2scz!4v1633630354820!5m2!1scs!2scz" width="100%" height="100%" frameborder="0" style="border: 0px; min-height: 400px;" aria-hidden="false" tabindex="0" title="Naše lokace"></iframe>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer bg-gray-800 py-2 text-primary-content footer-center">
+  <p>fresh-dent.cz</p>
+</footer>
+{{ end }}
