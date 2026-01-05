@@ -15,7 +15,7 @@ theme = 'freshdent'
 
   # Popup okno (dovolená, zastup, atd.)
   [params.popup]
-    enabled = true
+    enabled = false
     title = 'Upozornění'
     message = '''
 Ve dnech 22.12.2025 - 2.1.2026 Zubní ordinace **ZAVŘENA!!!**
