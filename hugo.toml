@@ -10,7 +10,7 @@ theme = 'freshdent'
   address = 'Havlíkova 49/1, Horní Jiřetín'
 
   # Alert banner
-  alertEnabled = true
+  alertEnabled = false
   alertMessage = 'Pro enormní zájem bohužel máme stop stav. Poslední volná místa jsou pouze pro obyvatele Horního Jiřetina a Černic.'
 
   # Popup okno (dovolená, zastup, atd.)
