@@ -34,7 +34,7 @@ V akutních případech kontaktujte pohotovost.
     weight = 2
   [[menu.main]]
     name = 'Dotace'
-    url = 'publicita-web.pdf'
+    url = 'images/digitalizace-freshdent.jpg'
     weight = 3
     [menu.main.params]
       external = true
