@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="{{ "images/favicon.ico" | relURL }}">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dotace - FreshDent</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .back-link:hover {
+      background-color: #2980b9;
+    }
+
+    .images-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      padding: 20px 0;
+    }
+
+    .image-wrapper {
+      width: 100%;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px 20px;
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .container {
+        padding: 15px;
+      }
+
+      header {
+        padding: 30px 15px 15px;
+      }
+
+      .back-link {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+
+      .images-container {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.3rem;
+      }
+
+      .container {
+        padding: 10px;
+      }
+
+      header {
+        padding: 20px 10px 10px;
+      }
+
+      .images-container {
+        gap: 15px;
+        padding: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Dotace pro FreshDent</h1>
+      <p>Projekt podpořený z dotací MAS Naděje</p>
+    </header>
+
+    <div class="images-container">
+      <div class="image-wrapper">
+        <img src="{{ "images/dotace-mas.jpg" | relURL }}" alt="Dotace od MAS Naděje pro FreshDent" loading="lazy">
+      </div>
+      <div class="image-wrapper">
+        <img src="{{ "images/mas-nadeje.jpg" | relURL }}" alt="Logo MAS Naděje" loading="lazy">
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; {{ now.Format "2006" }} FreshDent - Stomatologická ordinace</p>
+    </footer>
+  </div>
+</body>
+</html>
