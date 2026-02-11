@@ -15,10 +15,11 @@ theme = 'freshdent'
 
   # Popup okno (dovolená, zastup, atd.)
   [params.popup]
-    enabled = true
+    enabled = false
     title = 'Upozornění'
     message = '''
 Dnes 12.2.2026 Zubní ordinace **ZAVŘENA!!!**
+
 '''
 
 [menu]
