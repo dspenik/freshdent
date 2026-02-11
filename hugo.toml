@@ -19,8 +19,6 @@ theme = 'freshdent'
     title = 'Upozornění'
     message = '''
 Dnes 12.2.2026 Zubní ordinace **ZAVŘENA!!!**
-
-
 '''
 
 [menu]
