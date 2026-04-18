@@ -6,9 +6,47 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#000000">
   <meta name="description" content="{{ .Site.Params.description }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ .Site.Title }}">
+  <meta property="og:description" content="{{ .Site.Params.description }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:locale" content="cs_CZ">
   <link rel="apple-touch-icon" href="{{ "images/favicon.ico" | relURL }}">
   <title>{{ .Site.Title }}</title>
   <link href="{{ "css/style.css" | relURL }}" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "name": "FreshDent - Stomatologická ordinace",
+    "description": "{{ .Site.Params.description }}",
+    "url": "https://fresh-dent.cz/",
+    "telephone": "+420797828777",
+    "email": "michal.spenik@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Havlíkova 49/1",
+      "addressLocality": "Horní Jiřetín",
+      "addressCountry": "CZ"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+        "opens": "08:30",
+        "closes": "15:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Friday",
+        "opens": "08:30",
+        "closes": "12:00"
+      }
+    ],
+    "priceRange": "$$"
+  }
+  </script>
 </head>
 <body>
   {{- if .Site.Params.popup.enabled }}

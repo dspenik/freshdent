@@ -2,6 +2,7 @@ baseURL = 'https://fresh-dent.cz/'
 languageCode = 'cs'
 title = 'FreshDent - Stomatologická ordinace'
 theme = 'freshdent'
+disableKinds = ['taxonomy', 'term']
 
 [params]
   description = 'Stomatologická ordinace MDDr. Michal Špenik'

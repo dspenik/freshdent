@@ -55,7 +55,7 @@
 </header>
 
 <!-- Hero Section -->
-<section class="w-full hero-mob text-black sm:hero">
+<section id="o-nas" class="w-full hero-mob text-black sm:hero">
   <div class="flex w-full h-95vh sm:h-600">
     <div class="bg-white px-2 flex items-center text-center sm:px-8 sm:px-12 sm:w-1/2 morphism-hero">
       <div>
@@ -75,13 +75,13 @@
 <section class="bg-yellow-300 w-full text-black">
   <div class="max-w-6xl mx-auto px-4 text-center justify-items-center sm:px-6 lg:px-4 py-12">
     <div class="w-full text-center pb-8">
-      <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-gray-900 pb-2">Naše služby</h1>
+      <h2 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-gray-900 pb-2">Naše služby</h2>
     </div>
     <div class="w-full flex flex-col sm:grid sm:grid-cols-2 sm:gap-6">
       <!-- Prevence -->
       <div class="service-info-bg my-6 p-6 flex flex-1 flex-col-reverse items-center sm:flex-row sm:my-0">
         <div class="flex mx-4 my-4 px-8 max-width-100 sm:my-0">
-          <img class="object-center h-auto object-scale-down ms-150px" src="{{ "images/icon03.0263e031.png" | relURL }}" alt="">
+          <img class="object-center h-auto object-scale-down ms-150px" src="{{ "images/icon03.0263e031.png" | relURL }}" alt="Prevence">
         </div>
         <div class="flex flex-col px-4 space-y-6 mb-4 items-center sm:items-stretch">
           <p class="flex items-end text-center text-xl font-bold h-1/4">Prevence</p>
@@ -91,7 +91,7 @@
       <!-- Konzervační ošetření -->
       <div class="service-info-bg my-6 p-6 flex flex-1 flex-col-reverse items-center sm:flex-row sm:my-0">
         <div class="flex mx-4 my-4 px-8 max-width-100 sm:my-0">
-          <img class="object-center h-auto object-scale-down ms-150px" src="{{ "images/icon01.b795e24b.png" | relURL }}" alt="">
+          <img class="object-center h-auto object-scale-down ms-150px" src="{{ "images/icon01.b795e24b.png" | relURL }}" alt="Konzervační ošetření">
         </div>
         <div class="flex flex-col px-4 space-y-6 mb-4 items-center sm:items-stretch">
           <p class="flex items-end text-center text-xl font-bold h-1/4">Konzervační ošetření</p>
@@ -101,7 +101,7 @@
       <!-- Dentální hygiena -->
       <div class="service-info-bg my-6 p-6 flex flex-1 flex-col-reverse items-center sm:flex-row sm:my-0">
         <div class="flex mx-4 my-4 px-8 max-width-100 sm:my-0">
-          <img class="object-center h-auto object-scale-down ms-150px" src="{{ "images/icon02.1027ee11.png" | relURL }}" alt="">
+          <img class="object-center h-auto object-scale-down ms-150px" src="{{ "images/icon02.1027ee11.png" | relURL }}" alt="Dentální hygiena">
         </div>
         <div class="flex flex-col px-4 space-y-6 mb-4 items-center sm:items-stretch">
           <p class="flex items-end text-center text-xl font-bold h-1/4">Dentální hygiena</p>
@@ -111,7 +111,7 @@
       <!-- Ostatní -->
       <div class="service-info-bg my-6 p-6 flex flex-1 flex-col-reverse items-center sm:flex-row sm:my-0">
         <div class="flex mx-4 my-4 px-8 max-width-100 sm:my-0">
-          <img class="object-center h-auto object-scale-down ms-150px" src="{{ "images/icon04.c47432be.png" | relURL }}" alt="">
+          <img class="object-center h-auto object-scale-down ms-150px" src="{{ "images/icon04.c47432be.png" | relURL }}" alt="CAD/CAM technologie a ostatní ošetření">
         </div>
         <div class="flex flex-col px-4 space-y-6 mb-4 items-center sm:items-stretch">
           <p class="flex items-end text-center text-xl font-bold h-1/4">Ostatní</p>
@@ -125,7 +125,7 @@
 <!-- Ceník Section -->
 <section id="cennik" class="bg-white w-full grid justify-items-center my-4 text-black">
   <div class="w-full text-center pb-8">
-    <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-gray-900 pb-2">Ceník</h1>
+    <h2 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-gray-900 pb-2">Ceník</h2>
   </div>
   <div class="max-w-6xl mx-auto px-4 text-center justify-items-center sm:px-6 lg:px-4 pb-12">
     <p class="text-black font-base text-base sm:text-base">Pojišťovny v ČR hradí pouze malou část nákladů kvalitní stomatologie, a navíc jen při použití levných (zastaralých) materiálů a postupů – takové však naše ordinace neposkytuje.<br>Většina typů ošetření, která vedou k dlouhodobému zachování či kvalitní náhradě Vašeho chrupu bohužel v současné době hrazeny pojišťovnou nejsou nebo je pojišťovny platí jen z části a pacient si musí tato poskytnutá ošetření doplatit.</p>
@@ -241,7 +241,7 @@
         </div>
         <div class="flex my-2 flex-col items-center sm:flex-row">
           <img class="w-6 h-6 mx-2" src="{{ "images/phone-alt-solid.808fe16d.svg" | relURL }}" alt="telefon">
-          <span class="text-base sm:text-sm">{{ .Site.Params.phone }}</span>
+          <a href="tel:{{ .Site.Params.phone }}" class="text-base sm:text-sm">{{ .Site.Params.phone }}</a>
         </div>
       </div>
     </div>
