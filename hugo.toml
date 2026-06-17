@@ -16,20 +16,11 @@ disableKinds = ['taxonomy', 'term']
 
   # Popup okno (dovolená, zastup, atd.)
   [params.popup]
-    enabled = false
+    enabled = true
     title = 'Upozornění'
     message = '''
-Zubní ordinace ve dnech 
-1.5.-15.5.2026 ZAVŘENA!
-
-V případě velmi akutní bolesti našich registrovaných pacientů
-
-od 7:00 – 9:00 každý pracovní den
-Zástup
-MDDr. Bílek , Tržní 508, Litvínov
-
-tel: 725 980 113
-
+Zubní ordinace dne
+18.6.2026 ZAVŘENA!
 '''
 
 [menu]
