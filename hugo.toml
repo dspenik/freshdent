@@ -20,15 +20,8 @@ disableKinds = ['taxonomy', 'term']
     title = 'Upozornění'
     message = '''
 Zubní ordinace ve dnech 
-10.8.-21.8.2026 ZAVŘENA!
+28.10.-2.11.2026 ZAVŘENA!
 
-V případě velmi akutní bolesti našich registrovaných pacientů
-
-Ve dnech 17.8 - 21.8  od 7:00 – 9:00 
-Zástup
-MDDr. Bílek , Tržní 508, Litvínov
-
-tel: 725 980 113
 '''
 
 [menu]
