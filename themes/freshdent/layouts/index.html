@@ -1,4 +1,7 @@
 {{ define "main" }}
+{{- $bg := (resources.Get "images/bg3.513cc8fe.jpeg").Process "webp q75" }}
+{{- $logo := (resources.Get "images/fresh_dent_logo_very_wide_png.16c8eb97.png").Process "resize x128 webp q85" }}
+{{- $tel := printf "+420%s" (replace site.Params.phone " " "") }}
 <!-- Header -->
 <header class="Menu">
   <nav>
@@ -11,16 +14,16 @@
       </div>
       <div class="hidden sm:px-2 sm:mx-2 sm:navbar-start sm:flex">
         <div class="flex items-center mx-4">
-          <img class="w-4 h-4 mx-2" src="{{ "images/phone-alt-solid.9a8c462f.svg" | relURL }}" alt="telefon">
-          <span class="text-base sm:text-sm">{{ .Site.Params.phone }}</span>
+          <img class="w-4 h-4 mx-2" src="{{ "images/phone-alt-solid.9a8c462f.svg" | relURL }}" width="16" height="16" alt="telefon">
+          <a href="tel:{{ $tel }}" class="text-base sm:text-sm">{{ .Site.Params.phone }}</a>
         </div>
         <div class="flex items-center mx-4">
-          <img class="w-4 h-4 mx-2" src="{{ "images/map-marker-alt-solid.290a1edc.svg" | relURL }}" alt="adresa">
+          <img class="w-4 h-4 mx-2" src="{{ "images/map-marker-alt-solid.290a1edc.svg" | relURL }}" width="16" height="16" alt="adresa">
           <span class="text-base">{{ .Site.Params.address }}</span>
         </div>
       </div>
       <div class="place-items-center m-0-auto sm:flex sm:navbar-center">
-        <img class="logo-size max-h-16" src="{{ "images/fresh_dent_logo_very_wide_png.16c8eb97.png" | relURL }}" alt="FreshDent">
+        <img class="logo-size max-h-16" src="{{ $logo.RelPermalink }}" width="{{ div $logo.Width 2 }}" height="{{ div $logo.Height 2 }}" alt="FreshDent">
       </div>
       <div class="hidden sm:flex sm:px-2 sm:mx-4 sm:navbar-end">
         <div class="sm:items-stretch">
@@ -33,11 +36,11 @@
     <!-- Mobile menu -->
     <div id="mobile-nav" class="mobile-nav">
       <div class="flex items-center py-2">
-        <img class="w-4 h-4 mx-2" src="{{ "images/phone-alt-solid.9a8c462f.svg" | relURL }}" alt="telefon">
-        <a href="tel:{{ .Site.Params.phone }}" class="text-base">{{ .Site.Params.phone }}</a>
+        <img class="w-4 h-4 mx-2" src="{{ "images/phone-alt-solid.9a8c462f.svg" | relURL }}" width="16" height="16" alt="telefon">
+        <a href="tel:{{ $tel }}" class="text-base">{{ .Site.Params.phone }}</a>
       </div>
       <div class="flex items-center py-2">
-        <img class="w-4 h-4 mx-2" src="{{ "images/map-marker-alt-solid.290a1edc.svg" | relURL }}" alt="adresa">
+        <img class="w-4 h-4 mx-2" src="{{ "images/map-marker-alt-solid.290a1edc.svg" | relURL }}" width="16" height="16" alt="adresa">
         <span class="text-sm">{{ .Site.Params.address }}</span>
       </div>
       <div class="flex flex-col py-2 border-t mt-2">
@@ -54,12 +57,13 @@
   {{ end }}
 </header>
 
+<main id="obsah">
 <!-- Hero Section -->
-<section id="o-nas" class="w-full hero-mob text-black sm:hero">
+<section id="o-nas" class="w-full hero-mob text-black sm:hero" style="background-image:url({{ $bg.RelPermalink }})">
   <div class="flex w-full h-95vh sm:h-600">
     <div class="bg-white px-2 flex items-center text-center sm:px-8 sm:px-12 sm:w-1/2 morphism-hero">
       <div>
-        <p class="font-bold text-2xl sm:text-5xl">Stomatologická ordinace</p>
+        <h1 class="font-bold text-2xl sm:text-5xl">Stomatologická ordinace</h1>
         <br>
         <p class="font-bold text-xl sm:text-3xl">MDDr. Michal Špenik</p>
         <p class="font-normal text-lg sm:text-base">sestra DiS Andrea Špeniková</p>
@@ -81,7 +85,8 @@
       <!-- Prevence -->
       <div class="service-info-bg my-6 p-6 flex flex-1 flex-col-reverse items-center sm:flex-row sm:my-0">
         <div class="flex mx-4 my-4 px-8 max-width-100 sm:my-0">
-          <img class="object-center h-auto object-scale-down ms-150px" src="{{ "images/icon03.0263e031.png" | relURL }}" alt="Prevence">
+          {{- $icon03 := (resources.Get "images/icon03.0263e031.png").Process "resize 200x webp q80" }}
+          <img class="object-center h-auto object-scale-down ms-150px" src="{{ $icon03.RelPermalink }}" width="{{ $icon03.Width }}" height="{{ $icon03.Height }}" loading="lazy" alt="Prevence">
         </div>
         <div class="flex flex-col px-4 space-y-6 mb-4 items-center sm:items-stretch">
           <p class="flex items-end text-center text-xl font-bold h-1/4">Prevence</p>
@@ -91,7 +96,8 @@
       <!-- Konzervační ošetření -->
       <div class="service-info-bg my-6 p-6 flex flex-1 flex-col-reverse items-center sm:flex-row sm:my-0">
         <div class="flex mx-4 my-4 px-8 max-width-100 sm:my-0">
-          <img class="object-center h-auto object-scale-down ms-150px" src="{{ "images/icon01.b795e24b.png" | relURL }}" alt="Konzervační ošetření">
+          {{- $icon01 := (resources.Get "images/icon01.b795e24b.png").Process "resize 200x webp q80" }}
+          <img class="object-center h-auto object-scale-down ms-150px" src="{{ $icon01.RelPermalink }}" width="{{ $icon01.Width }}" height="{{ $icon01.Height }}" loading="lazy" alt="Konzervační ošetření">
         </div>
         <div class="flex flex-col px-4 space-y-6 mb-4 items-center sm:items-stretch">
           <p class="flex items-end text-center text-xl font-bold h-1/4">Konzervační ošetření</p>
@@ -101,7 +107,8 @@
       <!-- Dentální hygiena -->
       <div class="service-info-bg my-6 p-6 flex flex-1 flex-col-reverse items-center sm:flex-row sm:my-0">
         <div class="flex mx-4 my-4 px-8 max-width-100 sm:my-0">
-          <img class="object-center h-auto object-scale-down ms-150px" src="{{ "images/icon02.1027ee11.png" | relURL }}" alt="Dentální hygiena">
+          {{- $icon02 := (resources.Get "images/icon02.1027ee11.png").Process "resize 200x webp q80" }}
+          <img class="object-center h-auto object-scale-down ms-150px" src="{{ $icon02.RelPermalink }}" width="{{ $icon02.Width }}" height="{{ $icon02.Height }}" loading="lazy" alt="Dentální hygiena">
         </div>
         <div class="flex flex-col px-4 space-y-6 mb-4 items-center sm:items-stretch">
           <p class="flex items-end text-center text-xl font-bold h-1/4">Dentální hygiena</p>
@@ -111,7 +118,8 @@
       <!-- Ostatní -->
       <div class="service-info-bg my-6 p-6 flex flex-1 flex-col-reverse items-center sm:flex-row sm:my-0">
         <div class="flex mx-4 my-4 px-8 max-width-100 sm:my-0">
-          <img class="object-center h-auto object-scale-down ms-150px" src="{{ "images/icon04.c47432be.png" | relURL }}" alt="CAD/CAM technologie a ostatní ošetření">
+          {{- $icon04 := (resources.Get "images/icon04.c47432be.png").Process "resize 200x webp q80" }}
+          <img class="object-center h-auto object-scale-down ms-150px" src="{{ $icon04.RelPermalink }}" width="{{ $icon04.Width }}" height="{{ $icon04.Height }}" loading="lazy" alt="CAD/CAM technologie a ostatní ošetření">
         </div>
         <div class="flex flex-col px-4 space-y-6 mb-4 items-center sm:items-stretch">
           <p class="flex items-end text-center text-xl font-bold h-1/4">Ostatní</p>
@@ -136,6 +144,7 @@
         <div class="overflow-x-auto">
           <p class="font-bold text-2xl my-4 text-center sm:text-left">Konzervační ošetření</p>
           <table class="table table-zebra w-full items-center text-base">
+            <thead class="sr-only"><tr><th scope="col">Výkon</th><th scope="col">Cena</th></tr></thead>
             <tbody>
               <tr><td>Ošetření zubního kazu – malá výplň</td><td>2000 Kč</td></tr>
               <tr><td>Ošetření zubního kazu – střední výplň</td><td>2500 Kč</td></tr>
@@ -153,6 +162,7 @@
         <div class="overflow-x-auto">
           <p class="font-bold text-2xl my-4 text-center sm:text-left">Protézy</p>
           <table class="table table-zebra w-full">
+            <thead class="sr-only"><tr><th scope="col">Výkon</th><th scope="col">Cena</th></tr></thead>
             <tbody>
               <tr><td>Oprava vypadlého zubu z protézy</td><td>500 Kč</td></tr>
               <tr><td>Oprava na modelu – prasklá náhrada</td><td>600 Kč</td></tr>
@@ -166,6 +176,7 @@
         <div class="overflow-x-auto">
           <p class="font-bold text-2xl my-4 text-center sm:text-left">Ostatní</p>
           <table class="table table-zebra w-full">
+            <thead class="sr-only"><tr><th scope="col">Výkon</th><th scope="col">Cena</th></tr></thead>
             <tbody>
               <tr><td>Dlaha bruxismus</td><td>2000 Kč</td></tr>
               <tr><td>Sutura (šití)</td><td>500 Kč</td></tr>
@@ -180,6 +191,7 @@
         <div class="overflow-x-auto">
           <p class="font-bold text-2xl my-4 text-center sm:text-left">Korunkové náhrady</p>
           <table class="table table-zebra w-full">
+            <thead class="sr-only"><tr><th scope="col">Výkon</th><th scope="col">Cena</th></tr></thead>
             <tbody>
               <tr><td>Korunka keramická anatomická CAD/CAM (Zirkon)</td><td>6000 Kč</td></tr>
               <tr><td>Můstek keramický anatomický CAD/CAM (Zirkon)</td><td>18000 Kč</td></tr>
@@ -232,27 +244,26 @@
       <br>
       <div class="flex flex-col justify-center items-center mx-4">
         <div class="flex my-2 flex-col items-center sm:flex-row">
-          <img class="w-6 h-6 mx-2" src="{{ "images/map-marker-alt-solid.53d2b771.svg" | relURL }}" alt="adresa">
+          <img class="w-6 h-6 mx-2" src="{{ "images/map-marker-alt-solid.53d2b771.svg" | relURL }}" width="24" height="24" alt="adresa">
           <span class="text-base">{{ .Site.Params.address }}</span>
         </div>
         <div class="flex my-2 flex-col items-center sm:flex-row">
-          <img class="w-6 h-6 mx-2" src="{{ "images/envelope-solid.408814d9.svg" | relURL }}" alt="mail">
-          <span class="text-base">{{ .Site.Params.email }}</span>
+          <img class="w-6 h-6 mx-2" src="{{ "images/envelope-solid.408814d9.svg" | relURL }}" width="24" height="24" alt="mail">
+          <a href="mailto:{{ .Site.Params.email }}" class="text-base">{{ .Site.Params.email }}</a>
         </div>
         <div class="flex my-2 flex-col items-center sm:flex-row">
-          <img class="w-6 h-6 mx-2" src="{{ "images/phone-alt-solid.808fe16d.svg" | relURL }}" alt="telefon">
-          <a href="tel:{{ .Site.Params.phone }}" class="text-base sm:text-sm">{{ .Site.Params.phone }}</a>
+          <img class="w-6 h-6 mx-2" src="{{ "images/phone-alt-solid.808fe16d.svg" | relURL }}" width="24" height="24" alt="telefon">
+          <a href="tel:{{ $tel }}" class="text-base sm:text-sm">{{ .Site.Params.phone }}</a>
         </div>
       </div>
     </div>
   </div>
   <div class="sm:w-1/2 bg-red-500">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10136.20616283473!2d13.5516315!3d50.5704059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x67404e9ddec13e8f!2sFresh%20Dent!5e0!3m2!1scs!2scz!4v1633630354820!5m2!1scs!2scz" width="100%" height="100%" frameborder="0" style="border: 0px; min-height: 400px;" aria-hidden="false" tabindex="0" title="Naše lokace"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10136.20616283473!2d13.5516315!3d50.5704059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x67404e9ddec13e8f!2sFresh%20Dent!5e0!3m2!1scs!2scz!4v1633630354820!5m2!1scs!2scz" width="100%" height="100%" frameborder="0" style="border: 0px; min-height: 400px;" loading="lazy" title="Naše lokace"></iframe>
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="footer bg-gray-800 py-2 text-primary-content footer-center">
-  <p>&copy; {{ now.Format "2006" }} FreshDent - Stomatologická ordinace</p>
-</footer>
+</main>
+
+{{ partial "footer.html" . }}
 {{ end }}

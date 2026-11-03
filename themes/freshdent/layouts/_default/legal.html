@@ -1,0 +1,10 @@
+{{ define "main" }}
+<header class="legal-header">
+  <a href="{{ "/" | relURL }}">&larr; Zpět na hlavní stránku</a>
+</header>
+<main id="obsah" class="legal">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+</main>
+{{ partial "footer.html" . }}
+{{ end }}

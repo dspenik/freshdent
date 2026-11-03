@@ -5,6 +5,8 @@
   <link rel="icon" href="{{ "images/favicon.ico" | relURL }}">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Dotace - FreshDent</title>
+  <meta name="description" content="{{ .Description }}">
+  <link rel="canonical" href="{{ .Permalink }}">
   <style>
     * {
       margin: 0;
@@ -142,6 +144,8 @@
 
     <footer>
       <p>&copy; {{ now.Format "2006" }} FreshDent - Stomatologická ordinace</p>
+      <p>{{ site.Params.company.name }} · IČO {{ site.Params.company.ico }} · {{ site.Params.address }}</p>
+      <p><a href="{{ "ochrana-osobnich-udaju/" | relURL }}">Ochrana osobních údajů</a></p>
     </footer>
   </div>
 </body>

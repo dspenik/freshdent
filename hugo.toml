@@ -5,10 +5,16 @@ theme = 'freshdent'
 disableKinds = ['taxonomy', 'term']
 
 [params]
-  description = 'Stomatologická ordinace MDDr. Michal Špenik'
+  description = 'Zubní ordinace FreshDent v Horním Jiřetíně – MDDr. Michal Špenik. Prevence, výplně, dentální hygiena a CAD/CAM korunky. Ceník a ordinační hodiny.'
   phone = '797 828 777'
   email = 'michal.spenik@gmail.com'
-  address = 'Havlíkova 49/1, Horní Jiřetín'
+  address = 'Havlíkova 49/1, 435 43 Horní Jiřetín'
+
+  [params.company]
+    name = 'Fresh Dent s.r.o.'
+    ico = '02456036'
+    registry = 'Zapsaná v obchodním rejstříku vedeném Krajským soudem v Ústí nad Labem, oddíl C, vložka 33642'
+    databox = 'kpf8c77'
 
   # Alert banner
   alertEnabled = false

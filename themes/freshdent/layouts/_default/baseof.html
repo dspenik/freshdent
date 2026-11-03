@@ -5,21 +5,37 @@
   <link rel="icon" href="{{ "images/favicon.ico" | relURL }}">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#000000">
-  <meta name="description" content="{{ .Site.Params.description }}">
+  {{- $desc := .Description | default site.Params.description }}
+  {{- $title := cond .IsHome site.Title (printf "%s - FreshDent" .Title) }}
+  {{- $og := (resources.Get "images/bg3.513cc8fe.jpeg").Process "fill 1200x630 jpg q80" }}
+  <meta name="description" content="{{ $desc }}">
   <link rel="canonical" href="{{ .Permalink }}">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="{{ .Site.Title }}">
-  <meta property="og:description" content="{{ .Site.Params.description }}">
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:description" content="{{ $desc }}">
   <meta property="og:url" content="{{ .Permalink }}">
   <meta property="og:locale" content="cs_CZ">
+  <meta property="og:image" content="{{ $og.Permalink }}">
+  <meta property="og:image:width" content="{{ $og.Width }}">
+  <meta property="og:image:height" content="{{ $og.Height }}">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="apple-touch-icon" href="{{ "images/favicon.ico" | relURL }}">
-  <title>{{ .Site.Title }}</title>
+  <title>{{ $title }}</title>
+  {{- if .IsHome }}
+  {{- $bg := (resources.Get "images/bg3.513cc8fe.jpeg").Process "webp q75" }}
+  <link rel="preload" as="image" href="{{ $bg.RelPermalink }}" fetchpriority="high">
+  {{- end }}
   <link href="{{ "css/style.css" | relURL }}" rel="stylesheet">
+  {{- if .IsHome }}
+  {{- $logo := resources.Get "images/fresh_dent_logo_very_wide_png.16c8eb97.png" }}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Dentist",
     "name": "FreshDent - Stomatologická ordinace",
+    "legalName": "{{ site.Params.company.name }}",
+    "logo": "{{ $logo.Permalink }}",
+    "image": "{{ $og.Permalink }}",
     "description": "{{ .Site.Params.description }}",
     "url": "https://fresh-dent.cz/",
     "telephone": "+420797828777",
@@ -27,6 +43,7 @@
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Havlíkova 49/1",
+      "postalCode": "435 43",
       "addressLocality": "Horní Jiřetín",
       "addressCountry": "CZ"
     },
@@ -47,8 +64,10 @@
     "priceRange": "$$"
   }
   </script>
+  {{- end }}
 </head>
 <body>
+  <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
   {{- if .Site.Params.popup.enabled }}
   <div class="popup is-visible" id="popup">
     <div class="popup-container">
