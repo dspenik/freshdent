@@ -61,6 +61,7 @@ jobs:
         env:
           CHROME_NO_SANDBOX: '1'
         run: |
+          google-chrome --version
           python3 -m http.server 8080 --bind 127.0.0.1 --directory public &
           node .github/scripts/check-mobile-overflow.mjs http://127.0.0.1:8080 public/sitemap.xml
 

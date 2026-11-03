@@ -23,17 +23,22 @@ const chromeBin = process.env.CHROME_BIN || 'google-chrome';
 const chrome = spawn(chromeBin, [
   '--headless=new', `--remote-debugging-port=${PORT}`, `--user-data-dir=${mkdtempSync(join(tmpdir(), 'chrome-'))}`,
   '--no-first-run', ...(process.env.CHROME_NO_SANDBOX ? ['--no-sandbox'] : []), 'about:blank',
-], { stdio: 'ignore' });
+], { stdio: ['ignore', 'ignore', 'pipe'] });
+let chromeStderr = '';
+let chromeExit = null;
+chrome.stderr.on('data', d => { chromeStderr = (chromeStderr + d).slice(-4000); });
+chrome.on('exit', (code, signal) => { chromeExit = `code=${code} signal=${signal}`; });
 chrome.on('error', err => { console.error(`cannot start ${chromeBin}: ${err.message}`); process.exit(2); });
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 let targets;
-for (let i = 0; i < 40 && !targets; i++) {
+for (let i = 0; i < 120 && !targets && chromeExit === null; i++) {
   await sleep(500);
   try { targets = await (await fetch(`http://127.0.0.1:${PORT}/json`)).json(); } catch {}
 }
 if (!targets) {
-  console.error('chrome did not start');
+  console.error(`chrome did not start (${chromeBin}, exit: ${chromeExit ?? 'still running'})`);
+  console.error(chromeStderr);
   chrome.kill();
   process.exit(2);
 }
