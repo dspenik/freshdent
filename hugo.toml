@@ -16,7 +16,7 @@ disableKinds = ['taxonomy', 'term']
 
   # Popup okno (dovolená, zastup, atd.)
   [params.popup]
-    enabled = true
+    enabled = false
     title = 'Upozornění'
     message = '''
 Zubní ordinace ve dnech 
