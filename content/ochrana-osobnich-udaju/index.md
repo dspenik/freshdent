@@ -26,7 +26,7 @@ Kontakt: [michal.spenik@gmail.com](mailto:michal.spenik@gmail.com), tel. [797 82
 
 - **Zdravotnická dokumentace:** 5 let od posledního poskytnutí zdravotních služeb (příloha č. 3 vyhlášky č. 444/2024 Sb., o zdravotnické dokumentaci). Lhůta začíná běžet 1. ledna roku následujícího po posledním záznamu. U některých částí dokumentace může vyhláška stanovit lhůtu delší.
 - **Účetní a daňové doklady:** po dobu stanovenou účetními a daňovými předpisy.
-- **E-mailová a jiná komunikace:** po dobu nezbytnou k jejímu vyřízení, poté ji mažeme.
+- **E-mailová a jiná komunikace:** 1 rok od posledního kontaktu, poté ji mažeme.
 
 ## Komu údaje předáváme
 
