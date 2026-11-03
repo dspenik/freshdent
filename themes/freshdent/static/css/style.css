@@ -71,7 +71,45 @@
   border: 0;
 }
 .site-footer {
-  row-gap: 0.25rem;
+  background-color: #1f2937;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.site-footer p + p {
+  margin-top: 0.5rem;
+}
+.site-footer-company span {
+  display: block;
+}
+.site-footer-small {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+.site-footer a {
+  text-decoration: underline;
+}
+@media (min-width: 640px) {
+  .site-footer-company span {
+    display: inline;
+  }
+  .site-footer-company span + span::before {
+    content: " · ";
+  }
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
+}
+.border-t {
+  border-top-width: 1px;
+}
+.map-placeholder {
+  background-color: #e5e7eb;
 }
 .legal-header {
   max-width: 48rem;

@@ -1,6 +1,6 @@
-<footer class="footer bg-gray-800 py-4 text-primary-content footer-center site-footer">
+<footer class="site-footer">
   <p>&copy; {{ now.Format "2006" }} FreshDent - Stomatologická ordinace</p>
-  <p>{{ site.Params.company.name }} · IČO {{ site.Params.company.ico }} · {{ site.Params.address }}</p>
-  <p class="text-xs">{{ site.Params.company.registry }}</p>
-  <p><a class="link" href="{{ "ochrana-osobnich-udaju/" | relURL }}">Ochrana osobních údajů</a></p>
+  <p class="site-footer-company"><span>{{ site.Params.company.name }}</span><span>IČO {{ site.Params.company.ico }}</span><span>{{ site.Params.address }}</span></p>
+  <p class="site-footer-small">{{ site.Params.company.registry }}</p>
+  <p><a href="{{ "ochrana-osobnich-udaju/" | relURL }}">Ochrana osobních údajů</a></p>
 </footer>

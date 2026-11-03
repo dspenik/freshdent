@@ -46,6 +46,9 @@ jobs:
         with:
           enablement: true
 
+      - name: Check template CSS classes
+        run: python3 .github/scripts/check-css-classes.py themes/freshdent
+
       - name: Build with Hugo
         run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
 
