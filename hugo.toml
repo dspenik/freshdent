@@ -1,5 +1,5 @@
 baseURL = 'https://fresh-dent.cz/'
-languageCode = 'cs'
+locale = 'cs'
 title = 'FreshDent - Stomatologická ordinace'
 theme = 'freshdent'
 disableKinds = ['taxonomy', 'term']
