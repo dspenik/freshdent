@@ -22,11 +22,11 @@ disableKinds = ['taxonomy', 'term']
 
   # Popup okno (dovolená, zastup, atd.)
   [params.popup]
-    enabled = false
+    enabled = true
     title = 'Upozornění'
     message = '''
 Zubní ordinace ve dnech 
-28.10.-2.11.2026 ZAVŘENA!
+16.11.- 17.11.2026 ZAVŘENA!
 
 '''
 
